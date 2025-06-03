@@ -95,7 +95,6 @@ void freeLinkedList(struct LinkedList **list) {
         struct Node* tmp = l->head;
         l->head = l->head->next;
 
-        free(tmp->data);
         free(tmp);
     }
 
