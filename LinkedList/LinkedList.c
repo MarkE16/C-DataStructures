@@ -39,6 +39,7 @@ struct LinkedList* createLinkedList(enum LinkedListType type) {
 }
 
 struct Node* getNodeWithValue(struct LinkedList *list, void *value) {
+    if (list == NULL) { return NULL; }
     struct Node *current = list->head;
 
     while (current != NULL && compareValues(list->type, current->data, value) != 0) {
@@ -52,6 +53,7 @@ struct Node* getNodeWithValue(struct LinkedList *list, void *value) {
  * Add a value to the end of the LinkedList.
  */
 void append(struct LinkedList *list, void *value) {
+    if (list == NULL) { return; }
     struct Node *node = malloc(sizeof(struct Node));
     node->data = value;
     node->next = NULL;
@@ -91,6 +93,9 @@ void removeNode(struct Node *n) {
  */
 void freeLinkedList(struct LinkedList **list) {
     struct LinkedList *l = *list;
+    
+    if (l == NULL) { return; }
+    
     while (l->head) {
         struct Node* tmp = l->head;
         l->head = l->head->next;

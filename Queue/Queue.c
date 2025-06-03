@@ -34,6 +34,7 @@ struct Queue* createQueue(enum QueueType type) {
  * Get the element at the front of the queue.
  */
 struct Node* peek(struct Queue* q) {
+    if (q == NULL) { return NULL; }
     return q->head;
 }
 
@@ -41,6 +42,7 @@ struct Node* peek(struct Queue* q) {
  * Add a value to the end of the queue.
  */
 void append(struct Queue *q, void *d) {
+    if (q == NULL) { return; }
     struct Node *n = malloc(sizeof(struct Node));
     n->data = d;
     n->next = NULL;
@@ -55,24 +57,26 @@ void append(struct Queue *q, void *d) {
 }
 
 struct Node* pop(struct Queue *q) {
+    if (q == NULL) { return NULL; }
     if (q->head == NULL) {
         return NULL;
     }
-    
+
     struct Node *node = q->head;
     q->head = q->head->next;
     q->size--;
-    
+
     if (q->head == NULL) {
         q->tail = NULL;
     }
-    
+
     return node;
 }
 
 void printQueue(struct Queue *q) {
+    if (q == NULL) { return; }
     struct Node *current = q->head;
-    
+
     while (current != NULL) {
         printNode(q->type, current->data);
         current = current->next;
@@ -82,17 +86,19 @@ void printQueue(struct Queue *q) {
 void freeQueue(struct Queue **q) {
     struct Queue *queue = *q;
     
+    if (queue == NULL) { return; }
+
     struct Node *current = queue->head;
-    
+
     while (current != NULL) {
         struct Node *tmp = current;
         current = current->next;
-        
+
         free(tmp);
     }
-    
+
     free(queue);
-    
+
     // Prevent use-after-free
     *q = NULL;
 }
