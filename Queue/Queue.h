@@ -23,7 +23,7 @@ struct Queue {
 };
 
 struct Queue* createQueue(enum QueueType);
-struct Node* peek(struct Queue*);
+void* peek(struct Queue*);
 void append(struct Queue*, void*);
 struct Node* pop(struct Queue*);
 void printQueue(struct Queue*);

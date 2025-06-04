@@ -33,9 +33,9 @@ struct Queue* createQueue(enum QueueType type) {
 /**
  * Get the element at the front of the queue.
  */
-struct Node* peek(struct Queue* q) {
+void* peek(struct Queue* q) {
     if (q == NULL) { return NULL; }
-    return q->head;
+    return q->head->data;
 }
 
 /**
@@ -85,7 +85,7 @@ void printQueue(struct Queue *q) {
 
 void freeQueue(struct Queue **q) {
     struct Queue *queue = *q;
-    
+
     if (queue == NULL) { return; }
 
     struct Node *current = queue->head;

@@ -11,12 +11,12 @@ int main() {
 
     printQueue(intQueue);
 
-    struct Node *front = peek(intQueue);
+    int *front = (int*) peek(intQueue);
 
     if (front == NULL) {
         printf("Front does not exist.\n");
     } else {
-        printf("Front value: %d\n", *(int*)front->data);
+        printf("Front value: %d\n", *front);
     }
 
     struct Node *poppedFront = pop(intQueue);
