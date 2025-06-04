@@ -38,7 +38,7 @@ struct LinkedList* createLinkedList(enum LinkedListType type) {
     return ptr;
 }
 
-struct Node* getNodeWithValue(struct LinkedList *list, void *value) {
+void* findValue(struct LinkedList *list, void *value) {
     if (list == NULL) { return NULL; }
     struct Node *current = list->head;
 
@@ -46,7 +46,7 @@ struct Node* getNodeWithValue(struct LinkedList *list, void *value) {
         current = current->next;
     }
 
-    return current;
+    return current->data;
 }
 
 /**

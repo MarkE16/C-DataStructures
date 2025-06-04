@@ -23,7 +23,7 @@ struct LinkedList {
 
 
 struct LinkedList* createLinkedList(enum LinkedListType);
-struct Node* getNodeWithValue(struct LinkedList*, void*);
+void* findValue(struct LinkedList*, void*);
 void append(struct LinkedList*, void*);
 void removeNode(struct Node*);
 void printLinkedList(struct LinkedList*);

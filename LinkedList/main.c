@@ -13,7 +13,7 @@ int main() {
     append(stringList, y);
     append(charList, &z);
 
-    struct Node* item = getNodeWithValue(intList, &x);
+    int *item = (int*) findValue(intList, &x);
 
     if (item == NULL) {
         printf("Item x with value %d does not exist.\n", x);
