@@ -19,7 +19,7 @@ struct Queue {
   struct Node *head;
   struct Node *tail;
   enum QueueType type;
-  int size;
+  unsigned int size;
 };
 
 struct Queue* createQueue(enum QueueType);
